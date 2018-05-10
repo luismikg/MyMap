@@ -4,7 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:title="Item"
+        android:title="@string/configurationTitle"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_settings_black_24dp"
         />
 
 </menu>
