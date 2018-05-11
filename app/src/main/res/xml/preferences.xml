@@ -10,4 +10,14 @@
         android:defaultValue="@array/numberButtons"
         />
 
+    <ListPreference
+        android:entries="@array/timeLocationForSettings"
+        android:entryValues="@array/timeLocation"
+        android:key="prefTimeLocation"
+        android:title="@string/timeLocationTitle"
+        android:summary="@string/timeLocationSummary"
+        android:persistent="true"
+        android:defaultValue="@array/timeLocation"
+        />
+
 </PreferenceScreen>

@@ -6,4 +6,17 @@
     <string name="placesTitle">Lugares</string>
     <string name="numberButtonsTitle">Número de lugares para visitar</string>
     <string name="numberButtonsSummary">"Selecciona el número de lugares que se te mostraran, los cuales puedes visitar! "</string>
+    <string name="timeLocationTitle">Configura el intervalo de tiempo para refrescar tu localización</string>
+    <string name="timeLocationSummary">Selecciona una frecuencia de tiempo</string>
+    <string name="title_activity_preferences_place_configurations">Preferencias</string>
+    <string name="site1">El Salar de Uyuni</string>
+    <string name="site2">Oasis de Huacachina</string>
+    <string name="site3">Cuevas de Waitomo</string>
+    <string name="site4">Cataratas de Iguazú</string>
+    <string name="site5">Los Pinnacles</string>
+    <string name="site6">Caño Cristales</string>
+    <string name="site7">Capadicia Turquia</string>
+    <string name="site8">Archipiélago de Bazaruto</string>
+    <string name="site10">Glaciar Perito Moreno</string>
+    <string name="site9">La Calzada del Gigante</string>
 </resources>

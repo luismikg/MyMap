@@ -5,7 +5,21 @@
     <string name="placesTitle">Places</string>
     <string name="numberButtonsTitle">Number places to visit</string>
     <string name="numberButtonsSummary">Chose number places to show you which you can visit!</string>
-    <string name="title_activity_preferences_place_configurations">PreferencesPlaceConfigurations
-    </string>
+    <string name="timeLocationTitle">Set Time frequency to refresh your location</string>
+    <string name="timeLocationSummary">Chose time frequency</string>
+    <string name="title_activity_preferences_place_configurations">Preferences</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="site1">The \"Salar de Uyuni\"</string>
+    <string name="site2">Huacachina Oasis</string>
+    <string name="site3">Waitomo Caves</string>
+    <string name="site4">Iguazu waterfalls</string>
+    <string name="site5">The Pinnacles</string>
+    <string name="site6">Caño Cristales</string>
+    <string name="site7">Capadocia Turky</string>
+    <string name="site8">Bazaruto Archipelago</string>
+    <string name="site9">The Giant\'s Causeway</string>
+    <string name="site10">Glasiar Perito Moreno</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
