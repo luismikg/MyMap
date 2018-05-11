@@ -3,9 +3,9 @@
     <string name="title_activity_maps">Map</string>
     <string name="configurationTitle">Configurations</string>
     <string name="placesTitle">Places</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="numberButtonsTitle">Number places to visit</string>
+    <string name="numberButtonsSummary">Chose number places to show you which you can visit!</string>
+    <string name="title_activity_preferences_place_configurations">PreferencesPlaceConfigurations
+    </string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

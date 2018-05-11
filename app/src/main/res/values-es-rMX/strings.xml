@@ -4,4 +4,6 @@
     <string name="title_activity_maps">Mi mapa</string>
     <string name="configurationTitle">Configuraciones</string>
     <string name="placesTitle">Lugares</string>
+    <string name="numberButtonsTitle">Número de lugares para visitar</string>
+    <string name="numberButtonsSummary">"Selecciona el número de lugares que se te mostraran, los cuales puedes visitar! "</string>
 </resources>

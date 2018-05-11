@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="numberButtons">
+        <item>4 Cuatro</item>
+        <item>6 Seis</item>
+        <item>8 Ocho</item>
+        <item>10 Diez</item>
+    </string-array>
+
+    <string-array name="numberButtonsForSettings">
+        <item>4</item>
+        <item>6</item>
+        <item>8</item>
+        <item>10</item>
+    </string-array>
+</resources>

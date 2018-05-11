@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:entries="@array/numberButtonsForSettings"
+        android:entryValues="@array/numberButtons"
+        android:key="prefNumberButtons"
+        android:title="@string/numberButtonsTitle"
+        android:summary="@string/numberButtonsSummary"
+        android:persistent="true"
+        android:defaultValue="@array/numberButtons"
+        />
+
+</PreferenceScreen>
