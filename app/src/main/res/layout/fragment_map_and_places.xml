@@ -20,10 +20,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="0"
-            android:layout_gravity="bottom">
+            android:layout_gravity="bottom"
+            android:id="@+id/linearLayoutButtonPlaces">
 
             <LinearLayout
-                android:id="@+id/layout1"
+                android:id="@+id/layoutPlaces1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -53,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/layout2">
+                android:id="@+id/layoutPlaces2">
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -78,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/layout3">
+                android:id="@+id/layoutPlaces3">
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -103,7 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/layout4">
+                android:id="@+id/layoutPlaces4">
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -128,7 +129,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/layout5">
+                android:id="@+id/layoutPlaces5">
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

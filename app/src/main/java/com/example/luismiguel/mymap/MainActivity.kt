@@ -17,6 +17,10 @@ class MainActivity : AppCompatActivity() {
     private var isSmarthone: Boolean = true
     private var preferencesChanged: Boolean = false
 
+    companion object {
+        public const val NUMBER_PLACES_TO_SHOW = "prefNumberButtons"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -34,6 +38,9 @@ class MainActivity : AppCompatActivity() {
         }else{
             this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         }
+
+        //Registro del "listener" para SharedPreferences
+        PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(preferencesChangeListener)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -51,19 +58,17 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-
-    // Listener for changes to the app's SharedPreferences.
-    /*private val preferencesChangeListener = OnSharedPreferenceChangeListener { sharedPreferences, key ->
+    private val preferencesChangeListener = OnSharedPreferenceChangeListener { sharedPreferences, key ->
         // Called when the user changes the app's preferences.
         preferencesChanged = true  // User changed app settings.
 
-        val quizFragment = supportFragmentManager.findFragmentById(R.id.quizFragment) as MainActivityFragment
+        val placesFragment = supportFragmentManager.findFragmentById(R.id.placesFragment) as MapAndPlacesFragment
 
-        if (key == CHOICES) {
+        if (key == NUMBER_PLACES_TO_SHOW) {
             // Number of choices to display changed.
-            quizFragment.updateGuessRows(sharedPreferences)
-            quizFragment.resetQuiz()
-        } else if (key == REGIONS) {
+            placesFragment.updateGuessRows(sharedPreferences)
+            //placesFragment.resetPlaces()
+        }/* else if (key == REGIONS) {
             // Regions to include changed.
             val regions = sharedPreferences.getStringSet(REGIONS, null)
 
@@ -81,9 +86,9 @@ class MainActivity : AppCompatActivity() {
                         R.string.default_region_message,
                         Toast.LENGTH_SHORT).show()
             }
-        }
+        }*/
         Toast.makeText(this@MainActivity,
-                R.string.restarting_quiz,
+                "YA",
                 Toast.LENGTH_SHORT).show()
-    }*/
+    }
 }
