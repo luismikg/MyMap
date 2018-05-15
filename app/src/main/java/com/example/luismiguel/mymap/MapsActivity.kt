@@ -1,35 +1,57 @@
 package com.example.luismiguel.mymap
 
-import android.support.v7.app.AppCompatActivity
+import android.content.pm.PackageManager
+import android.location.Location
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 
 class MapsActivity : SupportMapFragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
 
-    /*override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_maps)
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        val mapFragment = supportFragmentManager
-                .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
-    }*/
+    private lateinit var lastLocation:Location
+    private  lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+
+    companion object {
+        private const val LOCATION_PERMISSION_REQUEST_CODE = 1
+    }
 
     override fun onCreateView(p0: LayoutInflater, p1: ViewGroup?, p2: Bundle?): View? {
         val v: View? = super.onCreateView(p0, p1, p2)
-        getMapAsync(this)
+        this.getMapAsync(this)
+
+        this.fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(activity!!)
         return v
+    }
+
+    private fun setUpMap(){
+        if( ActivityCompat.checkSelfPermission(activity!!, android.Manifest.permission.ACCESS_FINE_LOCATION )!=PackageManager.PERMISSION_GRANTED ){
+            requestPermissions(arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE )
+        }
+        else {
+            this.mMap.isMyLocationEnabled = true
+            this.fusedLocationProviderClient.lastLocation.addOnSuccessListener(activity!!) { location ->
+                if (location != null) {
+                    this.lastLocation = location
+                    val currentLatLng = LatLng(location.latitude, location.longitude)
+                    this.mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
+                }
+            }
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        this.setUpMap()
     }
 
     /**
@@ -43,10 +65,12 @@ class MapsActivity : SupportMapFragment(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+        mMap.uiSettings.isZoomGesturesEnabled = true
 
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        this.setUpMap()
     }
+
 }
+    /*https://stackoverflow.com/questions/41753706/show-current-location-inside-google-map-fragment
+
+    https://androidteachers.com/kotlin-for-android/get-location-in-android-with-kotlin/ */
