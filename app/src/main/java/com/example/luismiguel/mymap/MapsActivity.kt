@@ -22,7 +22,8 @@ class MapsActivity : SupportMapFragment(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
 
     private lateinit var lastLocation:Location
-    private  lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private var zoom:Float = 10.0f
 
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
@@ -46,7 +47,7 @@ class MapsActivity : SupportMapFragment(), OnMapReadyCallback {
                 if (location != null) {
                     this.lastLocation = location
                     val currentLatLng = LatLng(location.latitude, location.longitude)
-                    this.mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
+                    this.mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, this.zoom))
                 }
             }
         }
@@ -58,7 +59,7 @@ class MapsActivity : SupportMapFragment(), OnMapReadyCallback {
         markerOpcions.title( nombre )
 
         this.mMap.addMarker( markerOpcions )
-        this.mMap.animateCamera( CameraUpdateFactory.newLatLngZoom(place, 12f) )
+        this.mMap.animateCamera( CameraUpdateFactory.newLatLngZoom(place, this.zoom) )
     }
 
     public fun clearMarked(){
@@ -66,6 +67,11 @@ class MapsActivity : SupportMapFragment(), OnMapReadyCallback {
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        this.setUpMap()
+    }
+
+    public fun setZoom( zoom:Float ){
+        this.zoom = zoom
         this.setUpMap()
     }
 

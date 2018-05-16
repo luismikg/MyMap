@@ -179,4 +179,11 @@ class MapAndPlacesFragment : Fragment() {
             layoutPlaces[i].visibility = View.VISIBLE
         }
     }
+
+    public fun updateZoom( sharedPreferences: SharedPreferences ){
+        val strZoom = sharedPreferences.getString( MainActivity.PREFERENCE_ZOOM, "10.0" )
+
+        val mapActivity = childFragmentManager.findFragmentById(R.id.mapFragment) as MapsActivity
+        mapActivity.setZoom( strZoom.toFloat() )
+    }
 }

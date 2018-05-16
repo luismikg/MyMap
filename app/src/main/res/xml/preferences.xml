@@ -13,7 +13,7 @@
     <ListPreference
         android:entries="@array/zoomForSettings"
         android:entryValues="@array/zoom"
-        android:key="prefTimeLocation"
+        android:key="prefZoom"
         android:title="@string/timeLocationTitle"
         android:summary="@string/timeLocationSummary"
         android:persistent="true"

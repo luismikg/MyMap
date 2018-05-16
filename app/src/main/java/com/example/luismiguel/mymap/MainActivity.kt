@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         public const val NUMBER_PLACES_TO_SHOW = "prefNumberButtons"
+        public const val PREFERENCE_ZOOM = "prefZoom"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,28 +79,11 @@ class MainActivity : AppCompatActivity() {
         if (key == NUMBER_PLACES_TO_SHOW) {
             // Number of choices to display changed.
             placesFragment.updateGuessRows(sharedPreferences)
-            //placesFragment.resetPlaces()
-        }/* else if (key == REGIONS) {
-            // Regions to include changed.
-            val regions = sharedPreferences.getStringSet(REGIONS, null)
-
-            if (regions != null && regions.size > 0) {
-                quizFragment.updateRegions(sharedPreferences)
-                quizFragment.resetQuiz()
-            } else {
-                // Must select one region-set, set North America as default.
-                val editor = sharedPreferences.edit()
-                regions!!.add(getString(R.string.default_region))
-                editor.putStringSet(REGIONS, regions)
-                editor.apply()
-
-                Toast.makeText(this@MainActivity,
-                        R.string.default_region_message,
-                        Toast.LENGTH_SHORT).show()
-            }
-        }*/
+        }else if( key == PREFERENCE_ZOOM ){
+            placesFragment.updateZoom(sharedPreferences)
+        }
         Toast.makeText(this@MainActivity,
-                "YA",
+                "Ok",
                 Toast.LENGTH_SHORT).show()
     }
 }
