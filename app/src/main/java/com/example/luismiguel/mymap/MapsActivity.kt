@@ -14,6 +14,8 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
 
 class MapsActivity : SupportMapFragment(), OnMapReadyCallback {
 
@@ -50,6 +52,19 @@ class MapsActivity : SupportMapFragment(), OnMapReadyCallback {
         }
     }
 
+    public fun setMarker( nombre:String, latitude:Double, longitude:Double){
+        val place = LatLng( latitude, longitude )
+        val markerOpcions = MarkerOptions().position( place )
+        markerOpcions.title( nombre )
+
+        this.mMap.addMarker( markerOpcions )
+        this.mMap.animateCamera( CameraUpdateFactory.newLatLngZoom(place, 12f) )
+    }
+
+    public fun clearMarked(){
+        this.mMap.clear()
+    }
+
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         this.setUpMap()
     }
@@ -69,7 +84,6 @@ class MapsActivity : SupportMapFragment(), OnMapReadyCallback {
 
         this.setUpMap()
     }
-
 }
     /*https://stackoverflow.com/questions/41753706/show-current-location-inside-google-map-fragment
 

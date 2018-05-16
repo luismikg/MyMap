@@ -7,17 +7,17 @@
         android:title="@string/numberButtonsTitle"
         android:summary="@string/numberButtonsSummary"
         android:persistent="true"
-        android:defaultValue="@array/numberButtons"
+        android:defaultValue="10"
         />
 
     <ListPreference
-        android:entries="@array/timeLocationForSettings"
-        android:entryValues="@array/timeLocation"
+        android:entries="@array/zoomForSettings"
+        android:entryValues="@array/zoom"
         android:key="prefTimeLocation"
         android:title="@string/timeLocationTitle"
         android:summary="@string/timeLocationSummary"
         android:persistent="true"
-        android:defaultValue="@array/timeLocation"
+        android:defaultValue="10.0"
         />
 
 </PreferenceScreen>

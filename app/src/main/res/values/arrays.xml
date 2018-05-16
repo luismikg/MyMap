@@ -15,17 +15,19 @@
     </string-array>
 
 
-    <string-array name="timeLocationForSettings">
-        <item>Cada 4 segundos</item>
-        <item>Cada 6 segundos</item>
-        <item>Cada 8 segundos</item>
-        <item>Cada 10 segundos</item>
+    <string-array name="zoomForSettings">
+        <item>Muy serca</item>
+        <item>Cerca</item>
+        <item>Normal</item>
+        <item>Lejos</item>
+        <item>Muy lejos</item>
     </string-array>
 
-    <string-array name="timeLocation">
-        <item>4</item>
-        <item>6</item>
-        <item>8</item>
-        <item>10</item>
+    <string-array name="zoom">
+        <item>2.0</item>
+        <item>5.0</item>
+        <item>10.0</item>
+        <item>15.0</item>
+        <item>20.0</item>
     </string-array>
 </resources>

@@ -25,22 +25,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        this.initActivity()
         //https://www.skyscanner.es/noticias/10-lugares-espectaculares-del-mundo-que-deberias-visitar
         //PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener( preferencesChangeListener )
-
-        val screenSize:Int = resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK
-        if( screenSize == Configuration.SCREENLAYOUT_SIZE_LARGE || screenSize == Configuration.SCREENLAYOUT_SIZE_XLARGE ) {
-            this.isSmarthone = false
-        }
-
-        if( this.isSmarthone ){
-            this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        }else{
-            this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-        }
-
-        //Registro del "listener" para SharedPreferences
-        PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(preferencesChangeListener)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -58,9 +45,33 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    private fun initActivity(){
+        this.initScreen()
+        this.initActions()
+    }
+
+
+    private fun initScreen(){
+        val screenSize:Int = resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK
+        if( screenSize == Configuration.SCREENLAYOUT_SIZE_LARGE || screenSize == Configuration.SCREENLAYOUT_SIZE_XLARGE ) {
+            this.isSmarthone = false
+        }
+
+        if( this.isSmarthone ){
+            this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        }else{
+            this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        }
+    }
+    private fun initActions(){
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
+        //Registro del "listener" para SharedPreferences
+        PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(preferencesChangeListener)
+    }
+
     private val preferencesChangeListener = OnSharedPreferenceChangeListener { sharedPreferences, key ->
         // Called when the user changes the app's preferences.
-        preferencesChanged = true  // User changed app settings.
+        this.preferencesChanged = true  // User changed app settings.
 
         val placesFragment = supportFragmentManager.findFragmentById(R.id.placesFragment) as MapAndPlacesFragment
 

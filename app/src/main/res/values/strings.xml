@@ -5,8 +5,8 @@
     <string name="placesTitle">Places</string>
     <string name="numberButtonsTitle">Number places to visit</string>
     <string name="numberButtonsSummary">Chose number places to show you which you can visit!</string>
-    <string name="timeLocationTitle">Set Time frequency to refresh your location</string>
-    <string name="timeLocationSummary">Chose time frequency</string>
+    <string name="timeLocationTitle">Set default zoom</string>
+    <string name="timeLocationSummary">Set the zoom for the map</string>
     <string name="title_activity_preferences_place_configurations">Preferences</string>
 
     <!-- TODO: Remove or change this placeholder text -->
